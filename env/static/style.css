@@ -1,0 +1,172 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f8f9fa; /* Color de fondo suave */
+}
+
+.container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 20px; /* Margen alrededor del contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco para el contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.content {
+    text-align: center; /* Centra el texto */
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 600px; /* Limita el ancho del contenido */
+    width: 100%; /* Asegura que el contenido use el ancho disponible */
+}
+
+.img-fluid {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.btn {
+    margin-top: 20px; /* Espaciado encima del botón */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 16px; /* Tamaño de fuente del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    transition: background-color 0.3s; /* Transición suave para el color de fondo */
+    width: 100%; /* Botón ocupa todo el ancho */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor sobre el botón */
+}
+
+/* Estilo específico para el botón "Ir a Peso" */
+.btn-secondary {
+    background-color: #6c757d; /* Color de fondo para el botón secundario */
+    color: white; /* Color del texto del botón */
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Color de fondo al pasar el cursor sobre el botón secundario */
+}
+
+/* Estilos existentes para la barra inferior */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #eb7622;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.bottom-bar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-bar a img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+.bottom-bar a:hover {
+    background-color: #575757;
+}
+
+.bottom-bar span {
+    font-size: 12px;
+}
+
+/* Estilos para el formulario de registro */
+.registro-form {
+    max-width: 400px; /* Ancho máximo del formulario */
+    margin: 20px auto; /* Centra el formulario en la página */
+    padding: 20px; /* Espaciado interno */
+    background-color: #ffffff; /* Fondo blanco para el formulario */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+h2 {
+    text-align: center; /* Centra el título del formulario */
+    margin-bottom: 20px; /* Espaciado debajo del título */
+    color: #333; /* Color del texto del título */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espaciado entre los grupos de formulario */
+    text-align: center; /* Centra el contenido dentro del grupo */
+}
+
+label {
+    display: block; /* Asegura que las etiquetas estén en su propia línea */
+    margin-bottom: 5px; /* Espaciado debajo de la etiqueta */
+    font-weight: bold; /* Resalta la etiqueta */
+    color: #555; /* Color del texto de la etiqueta */
+}
+
+.form-control {
+    width: 100%; /* Asegura que los campos ocupen todo el ancho del contenedor */
+    padding: 10px; /* Espaciado interno de los campos */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente del campo */
+}
+
+.form-control:focus {
+    border-color: #007bff; /* Cambia el color del borde al enfocar */
+    outline: none; /* Elimina el borde predeterminado del navegador */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra azul al enfocar */
+}
+
+/* Estilos para las secciones de comida */
+.meal {
+    margin: 20px 0; /* Espaciado vertical entre secciones */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fafafa; /* Fondo suave para las secciones de comida */
+}
+
+.meal h2 {
+    color: #007bff; /* Color azul para los títulos de las comidas */
+}
+
+.meal ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0; /* Sin padding */
+}
+
+.meal li {
+    padding: 5px 0; /* Espaciado vertical entre elementos de la lista */
+    border-bottom: 1px solid #ccc; /* Línea divisoria entre elementos */
+}
+
+.meal li:last-child {
+    border-bottom: none; /* Sin línea divisoria en el último elemento */
+}
+
+.calorias {
+    margin-top: 10px; /* Espaciado encima de las calorías */
+    text-align: right; /* Alineación a la derecha */
+}

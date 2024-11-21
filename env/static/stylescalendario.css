@@ -1,0 +1,91 @@
+/* Establece la imagen de fondo */
+body {
+    background-image: url('../static/fondo.png');
+    background-size: cover; /* Cubre toda la pantalla */
+    background-position: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal del calendario */
+.calendario-container {
+    max-width: 600px; /* Reduce el ancho para un diseño más compacto */
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente más oscuro para mejorar la legibilidad */
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    text-align: center; /* Centra el contenido dentro del contenedor */
+    overflow: hidden; /* Asegura que no haya desbordamiento del contenido */
+}
+
+/* Estilo para el título */
+h1 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilo para el calendario */
+table {
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    color: white;
+    font-size: 18px;
+    border-collapse: collapse;
+    table-layout: fixed; /* Asegura que las celdas tengan el mismo ancho */
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    word-wrap: break-word; /* Evita que el contenido desborde las celdas */
+}
+
+table th {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo semitransparente para los días */
+}
+
+table td {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo más claro para las celdas del calendario */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Líneas más visibles */
+}
+
+/* Estilos para botones */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px; /* Aumenta el espaciado interno */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    margin: 10px; /* Añade espacio entre los botones */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Cambia el color del botón al pasar el ratón */
+button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilos para los enlaces */
+a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #FFA500;
+}

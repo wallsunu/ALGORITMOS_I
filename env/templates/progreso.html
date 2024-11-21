@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesprogreso.css') }}">
+    <title>Progreso</title>
+</head>
+<div class="progreso-container">
+    <h1>Progreso diario</h1>
+    
+    <!-- Sección Consumo de Agua -->
+    <div>
+        <h2>Consumo de Agua</h2>
+        <p>Has alcanzado el <strong>{{ porcentaje_agua }}%</strong> de tu meta diaria de agua.</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ porcentaje_agua | default(0) }}%; background-color: green;">
+                {{ porcentaje_agua | default(0) }}%
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección Ejercicio -->
+    <div>
+        <h2>Ejercicio</h2>
+        <p>Has alcanzado el <strong>{{ porcentaje_ejercicio }}%</strong> de tu meta diaria de ejercicio.</p>
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ porcentaje_ejercicio | default(0) }}%; background-color: green;">
+                {{ porcentaje_ejercicio | default(0) }}%
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje de Felicitaciones -->
+    <div id="mensaje-felicidades" style="display: none; margin-top: 20px; color: blue; font-size: 18px; font-weight: bold;">
+        ¡Felicidades, progreso completado!
+    </div>
+
+    <!-- Botón para ver el calendario -->
+    <a href="/calendario">
+        <button>Ver Calendario</button>
+    </a>
+</div>
+
+<!-- Script para mostrar mensaje -->
+<script>
+    // Obtén los porcentajes desde las variables del servidor
+    const porcentajeAgua = {{ porcentaje_agua | default(0) }};
+    const porcentajeEjercicio = {{ porcentaje_ejercicio | default(0) }};
+
+    // Verifica si ambos porcentajes son 100%
+    if (porcentajeAgua === 100 && porcentajeEjercicio === 100) {
+        const mensajeFelicidades = document.getElementById('mensaje-felicidades');
+        mensajeFelicidades.style.display = 'block'; // Muestra el mensaje
+    }
+</script>
+
+{% endblock %}

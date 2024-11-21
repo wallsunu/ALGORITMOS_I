@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio de Agua</title>
+    <!-- Referencia al archivo CSS en la carpeta 'static/css' -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='agua2.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="reminder-box">
+            <h1>AGUA</h1>
+            <div class="reminder-content">
+                <p>¿Ya cumpliste el objetivo de los 8 vasos de agua?</p>
+            </div>
+            <div class="buttons">
+                <button class="yes-button">Sí, ya lo cumplí</button>
+                <button class="no-button">No, aún me falta</button>
+            </div>
+            <div class="footer-text">
+                <p>En cada gota de agua, hay una historia de vida!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

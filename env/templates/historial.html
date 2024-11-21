@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style_historial.css') }}">
+<h1>Historial de Recetas</h1>
+
+<div class="container">
+    {% for receta in recetas %}
+        <div class="menu-item">
+            <h3>{{ receta[1] }}</h3> <!-- Nombre de la receta (desayuno + almuerzo + cena) -->
+            <p>Calorías: {{ receta[2] }} kcal</p> <!-- Calorías totales -->
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

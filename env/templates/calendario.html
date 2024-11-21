@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylescalendario.css') }}">
+    <title>Calendario</title>
+</head>
+<body>
+    <div class="calendario-container">
+        <h1>Calendario de {{ mes_nombre }} {{ year }}</h1>
+
+        <!-- Mostrar el calendario -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Domingo</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for semana in dias_del_mes %}
+                <tr>
+                    {% for dia in semana %}
+                    <td>
+                        {% if dia != 0 %}
+                            <a href="{{ url_for('registro_nutrientes', mes=mes, year=year, dia=dia) }}">{{ dia }}</a>
+                        {% else %}
+                            &nbsp;
+                        {% endif %}
+                    </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Navegar entre meses -->
+        <div class="navigation">
+            <a href="{{ url_for('calendario', mes=mes-1, year=year) }}">
+                <button>Mes Anterior</button>
+            </a>
+            <a href="{{ url_for('calendario', mes=mes+1, year=year) }}">
+                <button>Mes Siguiente</button>
+            </a>
+        </div>
+
+        <!-- Botón para regresar al progreso -->
+        <br>
+        <a href="/progreso">
+            <button>Ver Progreso</button>
+        </a>
+    </div>
+</body>
+</html>
+{% endblock %}

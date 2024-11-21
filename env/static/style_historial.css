@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.header {
+    background-color: #383733;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.menu-item {
+    background-color: white;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.menu-item h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.menu-item p {
+    margin: 5px 0;
+    color: #555;
+}

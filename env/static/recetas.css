@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdf6f6;
+    color: #f7eeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-image: url('fondo.png'); /* Imagen de fondo que puedes cambiar */
+    background-size: cover;
+    padding: 450px;
+    border-radius: 5px;
+    box-shadow: 30 10px 30px rgba(0, 0, 0, 0.1);
+    width: 3000px;
+}
+
+header h1 {
+    text-align: center;
+    color: #f1f0f0;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.meal {
+    background-color: rgba(119, 118, 119, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.meal h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.meal ul {
+    list-style-type: none;
+}
+
+.meal li {
+    margin-bottom: 5px;
+}
+
+.calorias {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_ajustes.css') }}">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sección de la imagen y nombre de usuario -->
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="{{ url_for('static', filename='fotoperfil.jpg') }}" alt="Foto de perfil">
+            </div>
+            <div class="profile-name" contenteditable="true">
+                <strong>Nombre de usuario:</strong> {{ usuario['nombre'] }}
+            </div>
+        </div>
+
+        <!-- Opciones de personalización -->
+        <div class="profile-options">
+            <div class="option">
+                <p>• <span>Género:</span> {{ usuario['genero'] }}</p>
+            </div>
+            <div class="option">
+                <p>• <span>Peso:</span> {{ usuario['peso'] }} kg</p>
+            </div>
+            <div class="option">
+                <p>• <span>Talla:</span> {{ usuario['talla'] }} cm</p>
+            </div>
+        </div>
+
+        <!-- Botón para editar perfil -->
+        <div class="edit-profile-button">
+            <button onclick="document.getElementById('editProfileForm').style.display='block'">Editar perfil</button>
+        </div>
+
+        <!-- Formulario de edición de perfil -->
+        <div id="editProfileForm" style="display:none;">
+            <form action="{{ url_for('update_profile') }}" method="POST">
+                <!-- Campo para editar el nombre de usuario -->
+                <label for="newUsername">Nuevo nombre de usuario:</label>
+                <input type="text" id="newUsername" name="newUsername" value="{{ usuario['nombre'] }}" required>
+                
+                <!-- Campo para editar el peso -->
+                <label for="newPeso">Nuevo peso (kg):</label>
+                <input type="number" id="newPeso" name="newPeso" value="{{ usuario['peso'] }}" required>
+                
+                <!-- Campo para editar la talla -->
+                <label for="newTalla">Nueva talla (cm):</label>
+                <input type="number" id="newTalla" name="newTalla" value="{{ usuario['talla'] }}" required>
+
+                <!-- Campo para editar el género -->
+                <label for="newGenero">Nuevo género:</label>
+                <select id="newGenero" name="newGenero" required>
+                    <option value="Hombre" {% if usuario['genero'] == 'Hombre' %}selected{% endif %}>Hombre</option>
+                    <option value="Mujer" {% if usuario['genero'] == 'Mujer' %}selected{% endif %}>Mujer</option>
+                </select>
+
+                <button type="submit">Guardar cambios</button>
+            </form>
+        </div>
+
+        <!-- Botón para cerrar sesión -->
+        <div class="logout-button">
+            <form action="{{ url_for('logout') }}" method="POST">
+                <button type="submit">Cerrar sesión</button>
+            </form>
+        </div>
+
+        <!-- Botón para borrar cuenta -->
+        <div class="delete-account-button">
+            <form action="{{ url_for('borrar_cuenta') }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas borrar tu cuenta? Esta acción no se puede deshacer.');">
+                <button type="submit">Borrar cuenta</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

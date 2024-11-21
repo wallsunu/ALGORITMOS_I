@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('background.png'); /* Imagen de fondo simulando alimentos */
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.reminder-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.reminder-box h1 {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+    background-color: #4c5b5c;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.reminder-content p {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.yes-button, .no-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.yes-button {
+    background-color: #00aaff;
+    color: #fff;
+}
+
+.no-button {
+    background-color: #002244;
+    color: #fff;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #007acc;
+}
+

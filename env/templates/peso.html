@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='stylesPeso.css') }}">
+<body>
+    <div class="container">
+        <h1>Peso de usuario</h1>
+        
+        <!-- Mostrar el IMC -->
+        {% if imc is not none %}
+            <p><strong>Tu Índice de Masa Corporal (IMC):</strong> {{ imc | round(2) }}</p>
+        {% endif %}
+    
+        <form method="POST" action="{{ url_for('peso') }}">
+            <label for="currentWeight">Peso actual (kg):</label>
+            <input type="number" id="currentWeight" name="currentWeight" step="0.1" required>
+            
+            <label for="targetWeight">Peso objetivo (kg):</label>
+            <input type="number" id="targetWeight" name="targetWeight" step="0.1" required>
+            
+            <!-- Botón para enviar el formulario -->
+            <button type="submit" class="btn btn-primary">Registrar Peso</button>
+        </form>
+        
+        <div class="weight-info" id="weightInfo" style="display: block;">
+            <p><strong>Peso actual:</strong> <span class="current-weight" id="displayCurrentWeight">{{ session.get('current_weight', 'No registrado') }}</span> kg</p>
+            <p><strong>Peso objetivo:</strong> <span class="target-weight" id="displayTargetWeight">{{ session.get('target_weight', 'No registrado') }}</span> kg</p>
+        </div>
+
+        <!-- Botones para Recordatorio de agua y ejercicio -->
+        <button type="button" class="btn btn-warning" onclick="showWaterReminder()">Recordatorio de agua</button>
+        <button type="button" class="btn btn-warning" onclick="showExerciseReminder()">Recordatorio de Ejercicio</button>
+        
+        <!-- Formulario de recordatorio (oculto inicialmente) -->
+        <div id="waterForm" style="display:none;">
+            <form method="POST" action="{{ url_for('recordatorio') }}">
+                <label for="waterIntake">¿Cuántos litros de agua has tomado hoy?</label>
+                <input type="number" id="waterIntake" name="waterIntake" step="0.1" required>
+                <button type="submit" class="btn btn-success">Registrar Agua</button>
+            </form>
+        </div>
+        
+        <div id="exerciseForm" style="display:none;">
+            <form method="POST" action="{{ url_for('recordatorio') }}">
+                <label for="exerciseTime">¿Cuántos minutos de ejercicio has hecho hoy?</label>
+                <input type="number" id="exerciseTime" name="exerciseTime" required>
+                <button type="submit" class="btn btn-success">Registrar Ejercicio</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='script_Peso.js') }}"></script>
+
+    <script>
+        function showWaterReminder() {
+            if (confirm("¿Has tomado agua el día de hoy?")) {
+                document.getElementById('waterForm').style.display = 'block';
+            }
+        }
+
+        function showExerciseReminder() {
+            if (confirm("¿Haz hecho ejercicio el día de hoy?")) {
+                document.getElementById('exerciseForm').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+{% endblock %}

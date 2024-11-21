@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Nutrientes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='registroNutrientes.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registro de Nutrientes para el {{ dia }} / {{ mes }} / {{ year }}</h1>
+
+        <!-- Formulario para ingresar los nutrientes -->
+        <form method="POST">
+            <div class="form-group">
+                <label for="proteinas">Proteínas (g):</label>
+                <input type="number" id="proteinas" name="proteinas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="carbohidratos">Carbohidratos (g):</label>
+                <input type="number" id="carbohidratos" name="carbohidratos" required>
+            </div>
+
+            <div class="form-group">
+                <label for="grasas">Grasas (g):</label>
+                <input type="number" id="grasas" name="grasas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="calorias">Calorías totales:</label>
+                <input type="number" id="calorias" name="calorias" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Registrar</button>
+            </div>
+        </form>
+
+        <!-- Enlace para regresar al calendario -->
+        <p><a href="{{ url_for('calendario', mes=mes, year=year) }}">Volver al calendario</a></p>
+    </div>
+
+</body>
+</html>
+{% endblock %}
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recordatorio Personalizado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='recordatorio.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="reminder-box">
+            <h1>Logra tus objetivos con nuestros recordatorios personalizados!!</h1>
+            <div class="reminder-content">
+                <div class="image-section">
+                    <img src="{{ url_for('static', filename='fit.png') }}" alt="Image" class="food-image">
+                </div>
+                <div class="reminder-text">
+                    <p><strong>Cena 🌙</strong><br>Pollo al limón con papa de 344 kcal (30 min).</p>
+                    <p>Regístralos aquí.</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="activate-button">Activar recordatorio</button>
+                <button class="no-thanks-button">No, gracias</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

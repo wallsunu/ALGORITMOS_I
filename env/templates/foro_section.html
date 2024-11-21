@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='foro.css') }}">
+    </head>
+    <h1>Sección: {{ section|capitalize }}</h1>
+
+    <!-- Formulario para agregar un nuevo mensaje -->
+    <form action="{{ url_for('foro_section', section=section) }}" method="POST">
+        <div>
+            <label for="content">Comentario:</label>
+            <textarea id="content" name="content" rows="4" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Publicar</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <!-- Lista de comentarios -->
+    <h2>Comentarios</h2>
+    <div>
+        {% for message in messages %}
+            <div class="message">
+                <strong>{{ message.username }}</strong>:
+                <p>{{ message.content }}</p>
+                <hr>
+            </div>
+        {% else %}
+            <p>No hay comentarios aún en esta sección. ¡Sé el primero en comentar!</p>
+        {% endfor %}
+    </div>
+{% endblock %}
+

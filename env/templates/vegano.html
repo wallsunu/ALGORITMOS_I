@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Eres vegano?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vegano.css') }}">
+    <script>
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="diet-box">
+            <h1>¿Eres vegano o tienes una dieta normal?</h1>
+            <div class="diet-content">
+                <p>Selecciona tu tipo de dieta para brindarte sugerencias personalizadas:</p>
+            </div>
+            <div class="buttons">
+                <button class="vegan-button" onclick="redirectTo('plan.html')">Sí, soy vegano</button>
+                <button class="normal-button" onclick="redirectTo('plan.html')">No, tengo una dieta normal</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+

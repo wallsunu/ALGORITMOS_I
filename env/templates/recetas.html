@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas - Plan Diario</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recetas</h1> <!-- Título editable -->
+        </header>
+
+        <form method="POST" action="/recetas" id="caloriasForm">
+            <section class="meal" id="desayuno">
+                <h2>Mi Desayuno</h2> <!-- Nombre editable -->
+                <ul>
+                    <li contenteditable="true">1 taza de avena</li>
+                    <li contenteditable="true">1 huevo</li>
+                    <li contenteditable="true">1 plátano</li>
+                </ul>
+                <p class="calorias">
+                    Desayuno: <input type="number" id="desayuno_kcal" name="desayuno_kcal" placeholder="Calorías del desayuno" required oninput="calcularTotal()"> kcal
+                </p>
+            </section>
+
+            <section class="meal" id="almuerzo">
+                <h2>Mi Almuerzo</h2> <!-- Nombre editable -->
+                <ul>
+                    <li contenteditable="true">Pollo o pavia</li>
+                    <li contenteditable="true">1/2 taza de menestras</li>
+                    <li contenteditable="true">Verduras frescas</li>
+                </ul>
+                <p class="calorias">
+                    Almuerzo: <input type="number" id="almuerzo_kcal" name="almuerzo_kcal" placeholder="Calorías del almuerzo" required oninput="calcularTotal()"> kcal
+                </p>
+            </section>
+
+            <section class="meal" id="cena">
+                <h2>Mi Cena</h2> <!-- Nombre editable -->
+                <ul>
+                    <li contenteditable="true">1 vaso de yogurt</li>
+                    <li contenteditable="true">1 taza de frutas picadas</li>
+                    <li contenteditable="true">1 taza de granola</li>
+                </ul>
+                <p class="calorias">
+                    Cena: <input type="number" id="cena_kcal" name="cena_kcal" placeholder="Calorías de la cena" required oninput="calcularTotal()"> kcal
+                </p>
+            </section>
+
+            <p>Total de calorías: <span id="total_kcal">0</span> kcal</p>
+
+            <button type="submit">Agregar al Historial</button>
+        </form>
+
+        <footer>
+            <p>Total de agua: 8 vasos</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript para calcular las calorías -->
+    <script>
+        function calcularTotal() {
+            // Obtener los valores de las calorías ingresadas
+            const desayuno = parseInt(document.getElementById('desayuno_kcal').value) || 0;
+            const almuerzo = parseInt(document.getElementById('almuerzo_kcal').value) || 0;
+            const cena = parseInt(document.getElementById('cena_kcal').value) || 0;
+
+            // Calcular el total
+            const total = desayuno + almuerzo + cena;
+
+            // Actualizar el HTML para mostrar el total de calorías
+            document.getElementById('total_kcal').textContent = total;
+        }
+    </script>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+

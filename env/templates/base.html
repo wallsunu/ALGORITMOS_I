@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Aplicación</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylePlan.css') }}">
+</head>
+<body>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Barra de navegación -->
+    <div class="bottom-bar">
+        <a href="{{ url_for('plan') }}">
+            <img src="{{ url_for('static', filename='icons/plan.png') }}" alt="Plan">
+            <span>Plan</span>
+        </a>
+        <a href="{{ url_for('historial') }}">
+            <img src="{{ url_for('static', filename='icons/historial.png') }}" alt="Historial">
+            <span>Historial</span>
+        </a>
+        <a href="{{ url_for('recetas') }}">
+            <img src="{{ url_for('static', filename='icons/recetas.png') }}" alt="Recetas">
+            <span>Recetas</span>
+        </a>
+        <a href="{{ url_for('comunidad') }}">
+            <img src="{{ url_for('static', filename='icons/comunidad.png') }}" alt="Comunidad">
+            <span>Comunidad</span>
+        </a>
+        <a href="{{ url_for('progreso') }}">
+            <img src="{{ url_for('static', filename='icons/progreso.png') }}" alt="Progreso">
+            <span>Progreso</span>
+        </a>
+        <a href="{{ url_for('ajustes') }}">
+            <img src="{{ url_for('static', filename='icons/ajustes.png') }}" alt="Ajustes">
+            <span>Ajustes</span>
+        </a>
+        <a href="{{ url_for('registro_nutrientes') }}">
+            <img src="{{ url_for('static', filename='icons/plan.png') }}" alt="Registrar Nutrientes">
+            <span>Registrar Nutrientes</span>
+        </a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

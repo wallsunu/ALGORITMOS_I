@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Foro de la Comunidad :D</h1>
+
+    <!-- Caja de la sección "Recién empecé a usar esta app" -->
+    <div class="forum-section">
+        <a href="{{ url_for('foro_section', section='inicio') }}">
+            <h2>Recién empecé a usar esta app</h2>
+            <p>Comparte tu experiencia inicial y recibe consejos de otros usuarios.</p>
+        </a>
+    </div>
+
+    <!-- Caja de la sección "Consejos sobre ejercicios" -->
+    <div class="forum-section">
+        <a href="{{ url_for('foro_section', section='ejercicios') }}">
+            <h2>Consejos sobre ejercicios</h2>
+            <p>Comparte y aprende ejercicios que te han funcionado.</p>
+        </a>
+    </div>
+
+    <!-- Caja de la sección "Recetas favoritas" -->
+    <div class="forum-section">
+        <a href="{{ url_for('foro_section', section='recetas') }}">
+            <h2>Recetas favoritas</h2>
+            <p>Comparte tus recetas saludables favoritas.</p>
+        </a>
+    </div>
+{% endblock %}
+
+

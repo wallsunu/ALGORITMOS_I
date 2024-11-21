@@ -1,0 +1,105 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    height: 100vh; /* Altura completa de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('fondo.png'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que se repita la imagen */
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 20px;
+    background-color: #4caf50; /* Cambiar a #2196F3 para ejercicio */
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 5px 0 0 5px;
+}
+
+.progreso-container {
+    background-color: rgba(30, 30, 30, 0.9); /* Fondo del contenedor con transparencia */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    width: 90%; /* Ancho del contenedor */
+    max-width: 600px; /* Ancho máximo */
+    color: #ffffff; /* Texto blanco */
+    text-align: center; /* Centra el texto */
+}
+
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.circulo-progreso {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 75%, #ddd 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.porcentaje {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.objetivos, .logros {
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.logros {
+    margin-top: 30px;
+}
+
+.barra-logro {
+    background-color: #444;
+    border-radius: 5px;
+    height: 20px;
+    margin: 10px 0;
+    position: relative; /* Para posicionar el texto dentro de la barra */
+}
+
+.logro {
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+    transition: width 0.5s;
+}
+
+.logro.completado {
+    background-color: #76ff03; /* Verde más claro para logros completados */
+}
+
+.objetivo {
+    position: absolute; /* Para posicionar el texto dentro de la barra */
+    left: 10px; /* Espaciado a la izquierda */
+    top: 0;
+    line-height: 20px; /* Centrar verticalmente el texto */
+    color: #ffffff; /* Color del texto */
+}

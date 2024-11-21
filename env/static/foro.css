@@ -1,0 +1,108 @@
+/* Estilo global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    width: 60%;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de la sección */
+h1 {
+    color: #333333;
+    font-size: 28px;
+    text-align: center;
+}
+
+/* Estilo del formulario */
+form {
+    margin-bottom: 20px;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #555555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Comentarios */
+h2 {
+    font-size: 24px;
+    color: #333333;
+    margin-top: 30px;
+    border-bottom: 2px solid #eeeeee;
+    padding-bottom: 10px;
+}
+
+.message {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.message strong {
+    color: #333333;
+    font-size: 18px;
+}
+
+.message p {
+    font-size: 16px;
+    color: #555555;
+    margin: 10px 0 0;
+}
+
+/* Texto de "No hay comentarios" */
+p {
+    color: #777777;
+    text-align: center;
+    font-size: 16px;
+}

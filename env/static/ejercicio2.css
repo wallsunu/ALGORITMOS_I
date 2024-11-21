@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.exercise-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.exercise-box h1 {
+    font-size: 2.5rem;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.exercise-content p {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.yes-button, .no-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+
+.yes-button {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+.no-button {
+    background-color: #e53935;
+    color: #fff;
+}

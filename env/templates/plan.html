@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style_plan.css') }}">
+
+
+<h1>Plan de Ejercicio</h1>
+<div class="progress-container">
+    <div class="progress-circle" id="progressCircle">
+        <span id="progressText">0%</span>
+    </div>
+</div>
+<div>
+    <p id="totalCalorias">Total Calorías: {{ total_kcal }} kcal</p>
+    <p id="totalProteinas">Proteínas: {{ proteinas }} g</p>
+    <p id="totalGrasas">Grasas: {{ grasas }} g</p>
+</div>
+
+<form id="mealForm" action="{{ url_for('add_meal') }}" method="POST">
+    <input type="text" name="meal_name" placeholder="Nombre del alimento" required>
+    <input type="number" name="kcal" placeholder="Calorías" required>
+    <input type="number" name="proteinas" placeholder="Proteínas (g)" required>
+    <input type="number" name="grasas" placeholder="Grasas (g)" required>
+    <select name="meal_type" required>
+        <option value="desayuno">Desayuno</option>
+        <option value="almuerzo">Almuerzo</option>
+        <option value="cena">Cena</option>
+    </select>
+</form>
+
+<div class="button-container">
+    <button type="submit" form="mealForm">Agregar calorias</button>
+    <button id="resetButton">Reiniciar</button>
+</div>
+
+<script>
+// Escuchar el envío del formulario
+document.getElementById("mealForm").addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevenir recarga de la página
+
+    const formData = new FormData(this);
+
+    // Enviar los datos al backend usando Fetch
+    const response = await fetch("{{ url_for('add_meal') }}", {
+        method: "POST",
+        body: formData
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+
+        // Actualizar los totales en el frontend
+        document.getElementById("totalCalorias").textContent = `Total Calorías: ${result.total_kcal} kcal`;
+        document.getElementById("totalProteinas").textContent = `Proteínas: ${result.proteinas} g`;
+        document.getElementById("totalGrasas").textContent = `Grasas: ${result.grasas} g`;
+
+        // Actualizar el porcentaje de progreso en el círculo
+        const progreso = result.progreso;
+        document.getElementById("progressText").textContent = `${Math.round(progreso)}%`;
+        document.getElementById("progressCircle").style.background = `conic-gradient(#4caf50 ${progreso}%, #ddd ${progreso}%)`;
+
+        // Si el progreso es igual o mayor a 100%, deshabilitar el formulario
+        if (progreso >= 100) {
+            alert("Has alcanzado el límite de calorías para el día.");
+            document.getElementById("mealForm").querySelectorAll("input, select, button").forEach(element => {
+                element.disabled = true;
+            });
+        }
+
+        // Limpia el formulario después de agregar la comida
+        this.reset();
+    } else {
+        const errorData = await response.json();
+        if (errorData.error === "Límite de calorías alcanzado") {
+            alert("No puedes agregar más comida, has alcanzado el límite de calorías.");
+            document.getElementById("mealForm").querySelectorAll("input, select, button").forEach(element => {
+                element.disabled = true;
+            });
+        } else {
+            alert("Error al agregar la comida.");
+        }
+    }
+});
+document.getElementById("resetButton").addEventListener("click", async function() {
+    const response = await fetch("{{ url_for('reset_totals') }}", {
+        method: "POST"
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+
+        // Actualizar los totales en el frontend
+        document.getElementById("totalCalorias").textContent = `Total Calorías: ${result.total_kcal} kcal`;
+        document.getElementById("totalProteinas").textContent = `Proteínas: ${result.proteinas} g`;
+        document.getElementById("totalGrasas").textContent = `Grasas: ${result.grasas} g`;
+
+        // Restablecer el círculo de progreso
+        document.getElementById("progressText").textContent = "0%";
+        document.getElementById("progressCircle").style.background = "conic-gradient(#ddd 0%, #ddd 100%)";
+
+        // Habilitar el formulario si estaba deshabilitado
+        document.getElementById("mealForm").querySelectorAll("input, select, button").forEach(element => {
+            element.disabled = false;
+        });
+    } else {
+        alert("Error al reiniciar los totales.");
+    }
+});
+</script>
+
+{% endblock %}

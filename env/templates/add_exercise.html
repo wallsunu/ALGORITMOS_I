@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Agregar Ejercicio</h1>
+    <form method="POST">
+        <label for="name">Nombre del Ejercicio</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="duration">Duración (minutos)</label>
+        <input type="number" id="duration" name="duration" required>
+        <br>
+        <input type="submit" value="Agregar">
+    </form>
+{% endblock %}
+
+
